@@ -21,6 +21,8 @@ jobs:
           echo "hello${RELEASE_VERSION}"
       - name: Test2
         run: |
+          pwd
+          ls
           mv  dist/app_32.md app_change_32.md
           mv  dist/app_64.md app_change_64.md
           ls dir
