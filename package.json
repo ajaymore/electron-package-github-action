@@ -20,10 +20,10 @@
   },
   "homepage": "https://github.com/ajaymore/electron-package-github-action#readme",
   "dependencies": {
-    "electron": "^9.1.1",
     "googleapis": "^56.0.0"
   },
   "devDependencies": {
+    "electron": "^9.1.1",
     "eslint": "^7.5.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
