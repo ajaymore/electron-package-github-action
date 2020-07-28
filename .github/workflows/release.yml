@@ -21,13 +21,13 @@ jobs:
           echo "hello${RELEASE_VERSION}"
       - name: Test2
         run: |
-          mv  ./dist/app_32.md ./dist/app_change_32.md
-          mv  ./dist/app_64.md ./dist/app_change_64.md
+          mv  dist/app_32.md dist/app_change_32.md
+          mv  dist/app_64.md dist/app_change_64.md
           ls dir
       - name: Test3
         run: |
-          mv  ./dist/app_change_32.md ./dist/app_${RELEASE_VERSION}_32.md
-          mv  ./dist/app_change_64.md ./dist/app_${RELEASE_VERSION}_64.md
+          mv  dist/app_change_32.md dist/app_${RELEASE_VERSION}_32.md
+          mv  dist/app_change_64.md dist/app_${RELEASE_VERSION}_64.md
           ls dir
       # - uses: actions/checkout@v2
       # - name: Install Node.js, NPM and Yarn
