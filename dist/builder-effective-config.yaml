@@ -10,4 +10,5 @@ files:
   - filter:
       - build/**/*
       - node_modules/**/*
+      - main.js
 electronVersion: 9.1.1
