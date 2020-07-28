@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set output
-        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+        run: echo ::set-output name=tag::"234455"
       - name: Test
         env:
           RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
