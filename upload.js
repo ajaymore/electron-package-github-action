@@ -41,12 +41,12 @@ function uploadFile() {
     }
   );
   const fileMetadata2 = {
-    name: `MiigoDataLogger-${pjson.version}_64.exe`,
+    name: `MiigoDataLogger-v${pjson.version}_64.exe`,
     parents: ['1_DM_scA9dKI1qThWzUJOPv2LXlV0l1jw'],
   };
   const media2 = {
     mimeType: 'text/plain',
-    body: fs.createReadStream(`dist/MiigoDataLogger-${pjson.version}_64.exe`),
+    body: fs.createReadStream(`dist/MiigoDataLogger-v${pjson.version}_64.exe`),
   };
   drive.files.create(
     {
