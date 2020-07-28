@@ -21,15 +21,15 @@
   "homepage": "https://github.com/ajaymore/electron-package-github-action#readme",
   "dependencies": {
     "electron": "^9.1.1",
-    "electron-builder": "^22.8.0",
-    "eslint-config-prettier": "^6.11.0",
-    "googleapis": "^56.0.0",
-    "readline": "^1.3.0"
+    "googleapis": "^56.0.0"
   },
   "devDependencies": {
     "eslint": "^7.5.0",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0"
+    "eslint-plugin-import": "^2.22.0",
+    "electron-builder": "^22.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "readline": "^1.3.0"
   },
   "build": {
     "appId": "com.miigoinnovations",
