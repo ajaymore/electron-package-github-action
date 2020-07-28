@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set env
-        run: echo ::set-env name=RELEASE_VERSION::${GITHUB_REF#refs/*/}
+        run: echo ::set-env name=RELEASE_VERSION::1234
       - name: Test
         run: |
           echo "hello${RELEASE_VERSION}"
@@ -24,12 +24,12 @@ jobs:
         run: |
           mv  ./dist/app_32.md ./dist/app_change_32.md
           mv  ./dist/app_64.md ./dist/app_change_64.md
-          ls dir
+          ls dist
       - name: Test3
         run: |
           mv  ./dist/app_change_32.md ./dist/app_${RELEASE_VERSION}_32.md
           mv  ./dist/app_change_64.md ./dist/app_${RELEASE_VERSION}_64.md
-          ls dir
+          ls dist
       # - uses: actions/checkout@v2
       # - name: Install Node.js, NPM and Yarn
       #   uses: actions/setup-node@v1
