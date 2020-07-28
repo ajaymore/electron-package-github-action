@@ -1,4 +1,4 @@
-name: CI
+name: Build/release
 
 on:
   push:
@@ -16,28 +16,29 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Set env
-        run: echo "::set-env name=RELEASE_VERSION::${GITHUB_REF#refs/*/}"
-      - name: Test Environment variables
+        run: echo '::set-env name=RELEASE_VERSION::v1.6.3'
+
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Install node modules
+        run: npm install
+
+      - name: Build 32 & 64 bit version
         run: |
-          echo $RELEASE_VERSION
-          echo ${{ env.RELEASE_VERSION }}
-      # - name: Install Node.js, NPM and Yarn
-      #   uses: actions/setup-node@v1
-      #   with:
-      #     node-version: 12
-      # - name: Install node modules
-      #   run: npm install
-      # - name: Build 32 & 64 bit version
-      #   run: |
-      #     npm run pack:win32
-      #     ren  dist\MiigoDataLogger-${{env.RELEASE_VERSION}}.exe MiigoDataLogger-${{env.RELEASE_VERSION}}_32.exe
-      #     npm run pack:win64
-      #     ren  dist\MiigoDataLogger-${{env.RELEASE_VERSION}}.exe MiigoDataLogger-${{env.RELEASE_VERSION}}_64.exe
-      #   env:
-      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: upload to google drive
-      #   run: node upload.js
-      #   env:
-      #     TOKEN: ${{ secrets.TOKEN }}
-      #     CREDENTIALS: ${{ secrets.CREDENTIALS }}
+          npm run pack:win32
+          ren  dist\MiigoDataLogger-${{env.RELEASE_VERSION}}.exe MiigoDataLogger-${{env.RELEASE_VERSION}}_32.exe
+          npm run pack:win64
+          ren  dist\MiigoDataLogger-${{env.RELEASE_VERSION}}.exe MiigoDataLogger-${{env.RELEASE_VERSION}}_64.exe
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: upload to google drive
+        run: node upload.js
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          CREDENTIALS: ${{ secrets.CREDENTIALS }}

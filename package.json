@@ -1,6 +1,6 @@
 {
   "name": "electron-package-github-action",
-  "version": "1.6.0",
+  "version": "1.6.3",
   "description": "Electron, Github Actions",
   "main": "main.js",
   "scripts": {
@@ -35,7 +35,7 @@
   "build": {
     "appId": "com.miigoinnovations",
     "productName": "Miigo",
-    "artifactName": "MiigoDataLogger-${version}.${ext}",
+    "artifactName": "MiigoDataLogger-v${version}.${ext}",
     "copyright": "Copyright © 2019 ${author}",
     "mac": {
       "category": "public.app-category.utilities"
