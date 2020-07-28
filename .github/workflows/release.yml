@@ -14,6 +14,7 @@ jobs:
         os: [windows-latest]
 
     steps:
+      - uses: actions/checkout@v2
       - name: Set env
         run: echo ::set-env name=RELEASE_VERSION::${GITHUB_REF#refs/*/}
       - name: Test
@@ -21,15 +22,13 @@ jobs:
           echo "hello${RELEASE_VERSION}"
       - name: Test2
         run: |
-          pwd
-          ls dist
-          Move-Item -Path ./dist/app_32.md -Destination ./dist/app_change_32.md
-          Move-Item -Path ./dist/app_64.md -Destination ./dist/app_change_64.md
+          mv  ./dist/app_32.md ./dist/app_change_32.md
+          mv  ./dist/app_64.md ./dist/app_change_64.md
           ls dir
       - name: Test3
         run: |
-          Move-Item -Path ./dist/app_change_32.md -Destination ./dist/app_${RELEASE_VERSION}_32.md
-          Move-Item -Path ./dist/app_change_64.md -Destination ./dist/app_${RELEASE_VERSION}_64.md
+          mv  ./dist/app_change_32.md ./dist/app_${RELEASE_VERSION}_32.md
+          mv  ./dist/app_change_64.md ./dist/app_${RELEASE_VERSION}_64.md
           ls dir
       # - uses: actions/checkout@v2
       # - name: Install Node.js, NPM and Yarn
