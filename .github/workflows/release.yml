@@ -22,14 +22,14 @@ jobs:
       - name: Test2
         run: |
           pwd
-          ls
-          mv  /dist/app_32.md app_change_32.md
-          mv  /dist/app_64.md app_change_64.md
+          ls dist
+          Move-Item -Path ./dist/app_32.md -Destination ./dist/app_change_32.md
+          Move-Item -Path ./dist/app_64.md -Destination ./dist/app_change_64.md
           ls dir
       - name: Test3
         run: |
-          mv  /dist/app_change_32.md app_${RELEASE_VERSION}_32.md
-          mv  /dist/app_change_64.md app_${RELEASE_VERSION}_64.md
+          Move-Item -Path ./dist/app_change_32.md -Destination ./dist/app_${RELEASE_VERSION}_32.md
+          Move-Item -Path ./dist/app_change_64.md -Destination ./dist/app_${RELEASE_VERSION}_64.md
           ls dir
       # - uses: actions/checkout@v2
       # - name: Install Node.js, NPM and Yarn
