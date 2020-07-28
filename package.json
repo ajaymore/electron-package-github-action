@@ -6,7 +6,8 @@
   "scripts": {
     "start": "electron .",
     "pack:win32": "electron-builder -w --ia32",
-    "pack:win64": "electron-builder -w --x64"
+    "pack:win64": "electron-builder -w --x64",
+    "pack": "electron-builder"
   },
   "repository": {
     "type": "git",
@@ -40,7 +41,8 @@
     },
     "files": [
       "build/**/*",
-      "node_modules/**/*"
+      "node_modules/**/*",
+      "main.js"
     ],
     "directories": {
       "buildResources": "assets"

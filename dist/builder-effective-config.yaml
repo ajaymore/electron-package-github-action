@@ -1,0 +1,13 @@
+directories:
+  output: dist
+  buildResources: assets
+appId: com.miigoinnovations
+productName: Miigo
+copyright: 'Copyright © 2019 ${author}'
+mac:
+  category: public.app-category.utilities
+files:
+  - filter:
+      - build/**/*
+      - node_modules/**/*
+electronVersion: 9.1.1
