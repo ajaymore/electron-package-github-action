@@ -16,12 +16,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set output
-        run: echo ::set-output name=tag::"234455"
-      # - name: Test
-      #   env:
-      #     RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
-      #   run: |
-      #     echo ${{ env.RELEASE_VERSION }}
+        run: echo ::set-output name=tag::"9988d8s"
+      - name: Test
+        env:
+          RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
+        run: |
+          echo ${{ steps.vars.outputs }}
       - name: Test2
         run: |
           mv  ./dist/app_32.md ./dist/app_change_32.md
