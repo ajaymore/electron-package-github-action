@@ -33,9 +33,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: List dist directory
-        run: ls dist
-
       - name: upload to google drive
         run: node upload.js
         env:

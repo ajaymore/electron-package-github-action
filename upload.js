@@ -18,12 +18,12 @@ oAuth2Client.setCredentials(token);
 function uploadFile() {
   const drive = google.drive({ version: 'v3', auth: oAuth2Client });
   const fileMetadata = {
-    name: `MiigoDataLogger-${pjson}_32.exe`,
+    name: `MiigoDataLogger-${pjson.version}_32.exe`,
     parents: ['1_DM_scA9dKI1qThWzUJOPv2LXlV0l1jw'],
   };
   const media = {
     mimeType: 'text/plain',
-    body: fs.createReadStream(`dist/MiigoDataLogger-${pjson}_32.exe`),
+    body: fs.createReadStream(`dist/MiigoDataLogger-${pjson.version}_32.exe`),
   };
   drive.files.create(
     {
@@ -41,12 +41,12 @@ function uploadFile() {
     }
   );
   const fileMetadata2 = {
-    name: `MiigoDataLogger-${pjson}_64.exe`,
+    name: `MiigoDataLogger-${pjson.version}_64.exe`,
     parents: ['1_DM_scA9dKI1qThWzUJOPv2LXlV0l1jw'],
   };
   const media2 = {
     mimeType: 'text/plain',
-    body: fs.createReadStream(`dist/MiigoDataLogger-${pjson}_64.exe`),
+    body: fs.createReadStream(`dist/MiigoDataLogger-${pjson.version}_64.exe`),
   };
   drive.files.create(
     {
