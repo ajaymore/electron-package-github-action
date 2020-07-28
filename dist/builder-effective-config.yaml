@@ -3,7 +3,7 @@ directories:
   buildResources: assets
 appId: com.miigoinnovations
 productName: Miigo
-artifactName: 'MiigoDataLogger-${version}-${arch}.${ext}'
+artifactName: 'MiigoDataLogger${version}-${arch}.${ext}'
 copyright: 'Copyright © 2019 ${author}'
 mac:
   category: public.app-category.utilities

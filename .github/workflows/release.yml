@@ -16,18 +16,23 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - name: Install node modules
-        run: npm install
-      - name: Build 32 & 64 bit version
+      - name: File rename Test
         run: |
-          npm run pack:win32
-          npm run pack:win64
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # Runs a single command using the runners shell
-      - name: List dist directory
-        run: ls dist
+          ren  dist\app_32.md app_32.change.md
+          ren  dist\app_64.md app_64.change.md
+          ls dist
+      # - name: Install Node.js, NPM and Yarn
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: 12
+      # - name: Install node modules
+      #   run: npm install
+      # - name: Build 32 & 64 bit version
+      #   run: |
+      #     npm run pack:win32
+      #     npm run pack:win64
+      #   env:
+      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # # Runs a single command using the runners shell
+      # - name: List dist directory
+      #   run: ls dist
