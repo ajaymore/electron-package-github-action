@@ -15,21 +15,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set output
-        run: echo ::set-output name=tag::"9988d8s"
+      - name: Set env
+        run: '::set-env name=RELEASE_VERSION::ajayMM'
       - name: Test
-        env:
-          RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
         run: |
-          echo ${{ steps.vars.outputs }}
+          echo $RELEASE_VERSION
+          echo ${{ env.RELEASE_VERSION }}
       - name: Test2
         run: |
           mv  ./dist/app_32.md ./dist/app_change_32.md
           mv  ./dist/app_64.md ./dist/app_change_64.md
           ls dist
       - name: Test3
-        env:
-          RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
         run: |
           mv  ./dist/app_change_32.md ./dist/app_${{env.RELEASE_VERSION}}_32.md
           mv  ./dist/app_change_64.md ./dist/app_${{env.RELEASE_VERSION}}_64.md
