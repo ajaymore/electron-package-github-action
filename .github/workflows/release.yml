@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set env
-        run: ::set-env name=RELEASE_VERSION::ajayMM
+        run: echo '::set-env name=RELEASE_VERSION::ajayMM'
       - name: Test
         run: |
           echo $RELEASE_VERSION
