@@ -21,6 +21,9 @@ jobs:
         with:
           node-version: 12
 
+      - name: Install node modules
+        run: npm install
+
       - name: Build 32 & 64 bit version
         run: |
           npm run pack:win32
