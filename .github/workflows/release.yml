@@ -6,17 +6,26 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
+    # Platforms to build on/for
+    strategy:
+      matrix:
+        os: [windows-latest]
 
     steps:
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: List dist director
-        run: ls dist
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Build 32 & 64 bit version
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          npm run pack:win32
+          npm run pack:win64
+
+      # Runs a single command using the runners shell
+      - name: List dist directory
+        run: ls dist
